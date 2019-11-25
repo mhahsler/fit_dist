@@ -1,11 +1,15 @@
-# fit_dist helper based on R package fitdistrplus
+# fit_dist helper based on R package 
 
+cat("fit_dist helper based on R package fitdistrplus\n") 
+cat("This script is distributed under the Creative Commons Attribution 4.0 International License.\n") 
+cat("For usage, examples and questions, see https://github.com/mhahsler/fit_dist\n\n")
+
+# check if fitdistrplus is installed
+if(!("fitdistrplus" %in% installed.packages()[,"Package"])) install.packages("fitdistrplus")
 library("fitdistrplus")
 
 fit_dist <- function(x, distributions = NULL, discrete = NULL, 
   plot = TRUE, ...) {
- 
-  cat("fit_dist helper (see: https://github.com/mhahsler/fit_dist)\n\n")
    
   dists_cont = c("unif", "norm", "lnorm", "exp", "gamma", "beta", "weibull")
   dists_disc = c("binom", "pois", "nbinom", "geom", "hyper")

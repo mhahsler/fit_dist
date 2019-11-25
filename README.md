@@ -7,11 +7,11 @@ This work is licensed under the
 [Michael Hahsler](http://michael.hahsler.net).
 
 
-## Installation
+## Required Installation 
 
 * Install [R](https://cran.r-project.org/) 
-* Install [R Studio](https://rstudio.com/products/rstudio/download/)
-* Install the R package [fitdistrplus](https://cran.r-project.org/package=fitdistrplus) in R Studio using `_Tools>Install Packages_` or by typing `install.packages("fitdistrplus")`
+* Optional: Install [R Studio](https://rstudio.com/products/rstudio/download/)
+* Download the script: `source('https://raw.githubusercontent.com/mhahsler/fit_dist/master/fit_dist.R')`. 
 
 ## Usage
 
@@ -23,13 +23,17 @@ where `x` is a vector with the data, `distributions` is a vector with the distri
 `discrete` indicates if discrete or continuous distributions should be fit, and
 `plot` indicates if a Q-Q plot should be displayed. The function displays the results of statistical tests and function returns a list with the estimated parameters.
 
-You can use your own data by reading in CVS files in R Studio via `_Environment Tab>Import Datasets_` (window to the right) or you can type `my_data <- read.csv("my_data.csv")`. You can then use the appropriate column (here `x`) to fit the distribution using `fit_dist(my_data$x)`.
-
 _Note:_ The plot might be to large for the little window in R Studio. Use `X11()` (`quarz()` for Macs) to open a bigger window for plotting.
 
 
 ## Examples
 
+Download the script first.
+```
+source('https://raw.githubusercontent.com/mhahsler/fit_dist/master/fit_dist.R')
+```
+
+Fit some random data with a normal distribution.
 ```
 x <- rnorm(100, mean = 10, sd = 1)
 fit <- fit_dist(x)
@@ -148,3 +152,6 @@ Trying to fit binom, pois, nbinom, geom, hyper
 ```
 
 To avoid this behavior and fit continuous distributions, use `discrete = FALSE`.
+
+### Fit your own data
+You can use your own data by reading in CVS files in R Studio via `_Environment Tab>Import Datasets_` (window to the right) or you can type `my_data <- read.csv("my_data.csv")`. You can then use the appropriate column (here `x`) to fit the distribution using `fit_dist(my_data$x)`.
