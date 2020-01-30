@@ -23,11 +23,10 @@ fit_dist <- function(x, distributions = NULL, discrete = NULL,
     else distributions <- dists_cont
   }
  
-  cat("Trying to fit", paste(distributions, collapse = ", "), "\n") 
+  cat("Fitting", paste(distributions, collapse = ", "), "\n") 
   
   # fit distributions 
   f <- lapply(distributions, function(d) {
-    cat(paste("Fitting:", d, "\n"))
     try(fitdist(x, d, ...), silent = FALSE)
     })
 
