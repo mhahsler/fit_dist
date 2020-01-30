@@ -1,9 +1,9 @@
 # fit_dist
 Simple R script to fit distributions to data. This script is intended to provides students with a simple way to fit distributions (e.g., for input analysis in a simulation course).
 
-![CC](https://i.creativecommons.org/l/by/4.0/88x31.png)
+![CC](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 This work is licensed under the
-[Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). For questions please contact
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/). For questions please contact
 [Michael Hahsler](http://michael.hahsler.net).
 
 
@@ -42,8 +42,6 @@ fit <- fit_dist(x)
 ![Q-Q plot](example.png)
 
 ```
-fit_dist helper (see: https://github.com/mhahsler/fit_dist)
-
 Trying to fit unif, norm, lnorm, exp, gamma, beta, weibull 
 Fitting: unif 
 Fitting: norm 
@@ -144,8 +142,6 @@ fit_dist(x, distributions = "exp")
 ```
 x <- rpois(100, lambda = 2)
 fit_dist(x)
-
-fit_dist helper (see: https://github.com/mhahsler/fit_dist)
 
 Trying to fit binom, pois, nbinom, geom, hyper 
 ...
