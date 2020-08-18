@@ -11,7 +11,7 @@ This work is licensed under the
 
 * Install [R](https://cran.r-project.org/) 
 * Optional: Install [R Studio](https://rstudio.com/products/rstudio/download/)
-* Download the script: `source('https://raw.githubusercontent.com/mhahsler/fit_dist/master/fit_dist.R')`. 
+* Load the script: `source('https://raw.githubusercontent.com/mhahsler/fit_dist/master/fit_dist.R')`. 
 
 ## Usage
 
@@ -23,7 +23,7 @@ where `x` is a vector with the data, `distributions` is a vector with the distri
 `discrete` indicates if discrete or continuous distributions should be fit, and
 `plot` indicates if a Q-Q plot should be displayed. The function displays the results of statistical tests and function returns a list with the estimated parameters.
 
-_Note:_ The plot might be to large for the little window in R Studio. Use `X11()` (`quarz()` for Macs) to open a bigger window for plotting.
+_Note:_ The plot might be too large for the little window in R Studio. Use `X11()` (`quarz()` for Macs) to open a bigger window for plotting.
 
 
 ## Examples
@@ -150,4 +150,4 @@ Trying to fit binom, pois, nbinom, geom, hyper
 To avoid this behavior and fit continuous distributions, use `discrete = FALSE`.
 
 ### Fit your own data
-You can use your own data by reading in CVS files in R Studio via `_Environment Tab>Import Datasets_` (window to the right) or you can type `my_data <- read.csv("my_data.csv")`. You can then use the appropriate column (here `x`) to fit the distribution using `fit_dist(my_data$x)`.
+You can use your own data by reading in CVS files in R Studio via `Environment` tab and `Import Datasets` (in the window to the right) or you can type `my_data <- read.csv("my_data.csv")`. You can then use the appropriate column (in this example `x`) to fit the distribution using `fit_dist(my_data$x)`.
