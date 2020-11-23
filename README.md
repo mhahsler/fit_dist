@@ -1,5 +1,6 @@
 # fit_dist
-Simple R script to fit distributions to data. This script is intended to provides students with a simple way to fit distributions (e.g., for input analysis in a simulation course).
+Simple R script to fit distributions to data based on 
+the R package `fitdistrplus`. This script is intended to provide students with a simple way to fit distributions (e.g., for input analysis in a simulation course).
 
 ![CC](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 This work is licensed under the
@@ -7,7 +8,7 @@ This work is licensed under the
 [Michael Hahsler](http://michael.hahsler.net).
 
 
-## Required Installation 
+## Required Software
 
 * Install [R](https://cran.r-project.org/) 
 * Optional: Install [R Studio](https://rstudio.com/products/rstudio/download/)
@@ -16,24 +17,25 @@ This work is licensed under the
 ## Usage
 
 ```
-fit_dist(x, distributions = NULL, discrete = NULL, 
-  plot = TRUE, ...)
+source('https://raw.githubusercontent.com/mhahsler/fit_dist/master/fit_dist.R')
+
+fit_dist(x, distributions = NULL, discrete = NULL, plot = TRUE, ...)
 ```
 where `x` is a vector with the data, `distributions` is a vector with the distributions to fit,
 `discrete` indicates if discrete or continuous distributions should be fit, and
-`plot` indicates if a Q-Q plot should be displayed. The function displays the results of statistical tests and function returns a list with the estimated parameters.
+`plot` indicates if a Q-Q plot should be displayed. The function displays the results of statistical tests and returns a list with the estimated parameters.
 
 _Note:_ The plot might be too large for the little window in R Studio. Use `X11()` (`quarz()` for Macs) to open a bigger window for plotting.
 
 
 ## Examples
 
-Download the script first.
+Load the script first.
 ```
 source('https://raw.githubusercontent.com/mhahsler/fit_dist/master/fit_dist.R')
 ```
 
-Fit some random data with a normal distribution.
+Fit some random data drawn from a normal distribution.
 ```
 x <- rnorm(100, mean = 10, sd = 1)
 fit <- fit_dist(x)
@@ -42,19 +44,12 @@ fit <- fit_dist(x)
 ![Q-Q plot](example.png)
 
 ```
-Trying to fit unif, norm, lnorm, exp, gamma, beta, weibull 
-Fitting: unif 
-Fitting: norm 
-Fitting: lnorm 
-Fitting: exp 
-Fitting: gamma 
-Fitting: beta 
+Fitting unif, norm, lnorm, exp, gamma, beta, weibull
 Error in computing default starting values.
 Error in manageparam(start.arg = start, fix.arg = fix.arg, obs = data,  : 
   Error in start.arg.default(obs, distname) : 
   values must be in [0-1] to fit a beta distribution
 
-Fitting: weibull 
 Test results:
         Kolmogorov.iSmirnov.test Cramer.von.Mises.test Anderson.Darling.test Chi.Square.p.value
 unif                not rejected          not computed          not computed       1.677783e-02
@@ -67,6 +62,8 @@ weibull             not rejected          not rejected          not rejected    
 *** Best fit using the AIC is: norm ***
 *** Best fit using the BIC is: norm ***
 ```
+
+The code is unable to fit a beta distribution. Since the data is not between 0 and 1.
 
 ```
 fit
@@ -138,7 +135,7 @@ x <- rexp(100))
 fit_dist(x, distributions = "exp")
 ```
 
-### The helper recognizes data for discrete distributions 
+### The function automatically recognizes data for discrete distributions 
 ```
 x <- rpois(100, lambda = 2)
 fit_dist(x)
