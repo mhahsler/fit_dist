@@ -1,8 +1,10 @@
 # fit_dist helper based on R package 
 
-cat("fit_dist helper based on R package fitdistrplus\n") 
-cat("This script is distributed under the Creative Commons Attribution 4.0 International License.\n") 
-cat("For usage, examples and questions, see https://github.com/mhahsler/fit_dist\n\n")
+message(paste(
+  "fit_dist helper based on R package fitdistrplus", 
+  "This script is distributed under the Creative Commons Attribution 4.0 International License.",
+  "For usage, examples and questions, see https://github.com/mhahsler/fit_dist", sep = "\n")
+)
 
 # check if fitdistrplus is installed
 if(!("fitdistrplus" %in% installed.packages()[,"Package"])) install.packages("fitdistrplus")
